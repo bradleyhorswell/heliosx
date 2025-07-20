@@ -16,7 +16,7 @@ export function Header() {
             flexWrap: "wrap",
           }}
         >
-          <Image src="/logo.png" alt="ZipHealth logo" width={150} height={40} />
+          <Image src="/logo.png" alt="ZipHealth logo" width={313} height={80} />
           <Typography variant="h5">Genovian Consultation</Typography>
         </Box>
       </Toolbar>
