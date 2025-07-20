@@ -36,9 +36,9 @@ npm run test
 
 ## Tech Choices
 
-- **Next.js (App Router)** - Bootstrapped from `create-next-app`. I've used Next.js in projects before and appreciate how it's well-suited for scaling into a full web app — features like file-based routing, shared layouts (e.g for a persistent Header/Footer), and SSR out of the box. This app is quite small, so I'm not using those too heavily yet, but Next.js is pretty quick to get setup with, and they're ready to go if and when needed!
-- **Material UI (MUI)** - I've been working with MUI (as part of a Design System) recently and like how it gives us some styled, atomic components out of the box to spin up a UI fast. That said, I'm aware of the tradeoffs including a heavier bundle size, tighter coupling to MUI's component APIs, and less flexibility than utility-first CSS approaches like Tailwind.
-- **Vitest + React Testing Library** - I Initially started out using Jest, but after a bit of config friction getting it to play nicely with Next.js, swapped over to Vitest for faster and simpler testing setup.
+- **Next.js (App Router)** - Bootstrapped from `create-next-app`. I've used Next.js in projects before and appreciate how it's well-suited for scaling into a full web app — features like file-based routing, shared layouts (e.g for a persistent Header/Footer), and SSR out-of-the-box. This app is quite small, so I'm not using these too heavily yet, but Next.js is pretty quick to get setup with, and they're ready to go if and when needed!
+- **Material UI (MUI)** - I've been working with MUI (as part of a Design System) recently and like how it gives us some styled, atomic components out-of-the-box to spin up a UI fast. That said, I'm aware of the tradeoffs including a heavier bundle size, tighter coupling to MUI's component APIs, and less flexibility than utility-first CSS approaches like Tailwind.
+- **Vitest + React Testing Library** - I initially started out using Jest, but after a bit of config friction getting it to play nicely with Next.js, swapped over to Vitest for faster and simpler testing setup.
 
 ## Time Constraint Tradeoffs
 
