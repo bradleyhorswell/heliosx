@@ -5,6 +5,7 @@ import { submitConsultation } from "@/utils/submitConsultation";
 import { Button, Stack, Typography } from "@mui/material";
 import { useState } from "react";
 import { QuestionField } from "./QuestionField";
+import { FormSuccess } from "./FormSuccess";
 
 type ConsultationFormProps = {
   questions: Question[];
@@ -41,12 +42,7 @@ export function ConsultationForm({
     setIsSubmitted(true);
   };
 
-  if (isSubmitted)
-    return (
-      <Typography textAlign="center">
-        Thank you for submitting your answers!
-      </Typography>
-    );
+  if (isSubmitted) return <FormSuccess />;
 
   return (
     <Stack

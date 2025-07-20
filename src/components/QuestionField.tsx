@@ -1,14 +1,7 @@
 "use client";
 
 import { Question } from "@/data/questions";
-import {
-  FormControl,
-  FormControlLabel,
-  FormLabel,
-  Radio,
-  RadioGroup,
-  Typography,
-} from "@mui/material";
+import { FormControlLabel, Radio, RadioGroup, Typography } from "@mui/material";
 
 type QuestionFieldProps = {
   question: Pick<Question, "options" | "question">;
