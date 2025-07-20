@@ -8,7 +8,7 @@ export function Header() {
         <Box
           sx={{
             gap: 2,
-            p: 2,
+            py: 2,
             flex: 1,
             display: "flex",
             alignItems: "center",
