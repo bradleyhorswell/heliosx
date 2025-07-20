@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## About
+
+A simple, extensible consultation form that collects user input for prescribing treatment related to Genovian pear allergies. Built with TypeScript, React, Next.js, and Material UI, with tests using Vitest and React Testing Library.
+
+Live app example at: [https://heliosx-wine.vercel.app/](https://heliosx-wine.vercel.app/)
 
 ## Getting Started
 
-First, run the development server:
+### Installation
+
+Tested using Node `v20.19.0`.
+
+```bash
+git clone https://github.com/bradleyhorswell/heliosx.git
+cd heliosx
+npm install
+```
+
+### Running locally
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Running tests
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Run tests:
 
-## Learn More
+```bash
+npm run test
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Tech Choices
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Next.js (App Router)** - Bootstrapped from `create-next-app`. I've used Next.js in projects before and appreciate how it's well-suited for scaling into a full web app — features like file-based routing, shared layouts (e.g for a persistent Header/Footer), and SSR out of the box. This app is quite small, so I'm not using those too heavily yet, but Next.js is pretty quick to get setup with, and they're ready to go if and when needed!
+- **Material UI (MUI)** - I've been working with MUI (as part of a Design System) recently and like how it gives us some styled, atomic components out of the box to spin up a UI fast. That said, I'm aware of the tradeoffs including a heavier bundle size, tighter coupling to MUI's component APIs, and less flexibility than utility-first CSS approaches like Tailwind.
+- **Vitest + React Testing Library** - I Initially started out using Jest, but after a bit of config friction getting it to play nicely with Next.js, swapped over to Vitest for faster and simpler testing setup.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Time Constraint Tradeoffs
 
-## Deploy on Vercel
+To keep the scope focused, a few tradeoffs were made including:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **State Management** - I went with `useState` for simplicity, something like Redux felt overkill here. A more complex form (with validation, multiple inputs, etc) might benefit from extracting the state into a custom hook or using a form library like Formik with Zod/Yup validation.
+- **UX** - With more time I'd consider a few improvements, including:
+  - A back/previous button
+  - A progress bar instead of "Question 1 of X" text
+  - A review answers screen before submission
+  - Some graceful error handling and feedback on submit
+- **Question Model** - The question data typing is pretty minimal to suit the requirements (no `required` flags, validation, etc) but includes a `type` field as an example placeholder for future extensibility. This could be expanded to support multiple input types based on the backend contract.
+- **Submission Logic** - Currently mocked to mimic latency. In a real-world app I'd consider using a data fetching library like SWR to manage API calls — loading/error states, retries, caching, etc.
+- **Styling & Design** - Responsive yet kept very minimal, not currently themed or branded outside of MUI's defaults.
+- **Tests** - Test coverage is currently light, just a couple working happy path examples for the form. With more time I'd expand the coverage, including any unhappy paths or edge cases and fuller integration testing (e.g with Cypress).
