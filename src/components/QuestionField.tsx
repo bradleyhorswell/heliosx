@@ -4,7 +4,7 @@ import { Question } from "@/data/questions";
 import { FormControlLabel, Radio, RadioGroup, Typography } from "@mui/material";
 
 type QuestionFieldProps = {
-  question: Pick<Question, "options" | "question">;
+  question: Omit<Question, "type">;
   value: string;
   onChange: (value: string) => void;
   disabled?: boolean;
@@ -20,7 +20,7 @@ export function QuestionField({
     <>
       <Typography color="textSecondary">{question.question}</Typography>
       <RadioGroup
-        name={question.question}
+        name={`question-${question.id}`}
         value={value}
         onChange={(_, val) => {
           onChange(val);
